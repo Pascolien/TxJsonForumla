@@ -6,6 +6,7 @@
 		 <script type="text/javaScript" src="./js/lib/jquery.js"></script>
 		<script type="text/javascript" src="./js/lib/Math.js"></script>
 		<script type = "text/javascript" src="formula.js"> </script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
 		<link rel="stylesheet" type="text/css" href="./css/style.css">
 	</head>
 	<body style="color: rgb(102, 102, 204); background-color: rgb(255, 255, 255);  background-repeat: no-repeat;" alink="#336666" link="#9999ff" vlink="#000099">
