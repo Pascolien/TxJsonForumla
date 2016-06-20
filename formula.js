@@ -22,7 +22,7 @@ var TxFormula = (function () {
         },
 
         calculate: function (aJSON) {
-            res = 02
+            res = 0;
 
             //parcours des valeurs de l'objet
 
@@ -76,37 +76,37 @@ var TxFormula = (function () {
 
         },
 
-        ParamVar: function (id_div) {
+        editVar: function (id_div) {
             this.idDiv = id_div;
-            var form = $("<form name='" + this.json.name + "'/>");
+           // var form = $("<form   name='" + this.json.name + "'/>");
             var self = this;
             var variable = this.json.variables;
             var formula = this.json.formula;
             self.idDiv = id_div;
-            var form = $("<form name='" + self.json.name + "'/>");
-
-            form.append("<label for='name'  > nom:  </label>");
-            form.append("<input type='text' name='nom'   id='nom' required size=5/>");
-
-            form.append("<label for='value'  > valeur: </label>");
-            form.append("<input type='text' name='value'   id='value' required size=5/>");
-
-            form.append("<label for='unit' > unit:  </label>");
-            form.append("<input type='text' name='unit'  id='unit' required size=5/>");
+            var form = $("<form class='form-inline'role='form'name='" + self.json.name + "'/>");
+             
+            form.append("<label for='name'> nom:  </label>");
+            form.append("<input   type='text' class='form-control' name='nom'   id='nom' required size=5/>");
+            form.append("<br/><br/> ");
+            form.append("<label for='value'> valeur: </label>");
+            form.append("<input type='text' class='form-control' name='value' id='value' required size=5/>");
+            form.append("<br/> <br/>");
+            form.append("<label for='unit'> unit:  </label>");
+            form.append("<input type='text'  class='form-control' name='unit'  id='unit'  size=5/>");
             form.append("<br/><br/>");
 
             //formule edition
             form.append("<label for='formule' > formule: </label>");
-            form.append("<input type='text' name='formula' id='formule' value='" + this.json.formula + "'  size=50/>");
+            form.append("<input type='text'  class='form-control' name='formula' id='formule' value='" + this.json.formula + "'  size=50/>");
 
             $("#" + id_div).append(form);
 
 
             form.append("<br/><br/>")
-            form.append("<input type='submit' id='add' value='Add' />");
+            form.append("<input type='submit' class='btn btn-default id='add' value='Add' />");
             form.append("\t \t");
 
-            form.append("<input type='button' id='delete' value='delete' />");
+            form.append("<input type='button' class='btn btn-default' id='delete' value='delete' />");
             form.append("<br/><br/>");
 
             //add var 
@@ -117,14 +117,17 @@ var TxFormula = (function () {
                 self.json.formula = $("#formule").val();
             });
 
-            //non valide pour l instant
+            //delete var
             $("#delete").on('click', function (e) {
                 e.preventDefault();
 
-                // recherche dans l'objet de l'élément correspondant à la saisie
+                // recherche ,dans l'objet, de l'élément correspondant à la saisie
                 var index = self.json.variables.findIndex(function (variable) {
                     return variable.name === $("#nom").val();
                 });
+
+                //debugger;
+                if (index === -1) return;
 
                 variable.splice(index, 1);
                 self.json.formula = $("#formule").val();

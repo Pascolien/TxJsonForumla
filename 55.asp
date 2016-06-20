@@ -6,6 +6,9 @@
 		 <script type="text/javaScript" src="/code/js/lib/jquery.js"></script>
 		<script type="text/javascript" src="/code/js/lib/Math.js"></script>
 		<script type = "text/javascript" src="/temp_resources/portals/formula.js"> </script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/code/css/style.css">
 	</head>
 	<body style="color: rgb(102, 102, 204); background-color: rgb(255, 255, 255);  background-repeat: no-repeat;" alink="#336666" link="#9999ff" vlink="#000099">
@@ -27,7 +30,7 @@
 					<tr>      
 						    
 						<td>
-							<button type="button" class="button cancel" id="cancel">cancel</button>
+							<button type="button" class="button clear" id="clear">Clear</button>
 						</td>   
 							   
 					</tr>    	
@@ -42,6 +45,18 @@
 	   </div>
 	 
 		<script>
+			var login_JSON = [
+				{
+					"name":"admin",
+					"password":"aaaaa"
+				},
+				{
+					"name": "user",
+					"password":""
+				}
+			];
+
+			
 			var input_JSON = {
 				"name" : "allocatedTime",
 				"variables":[
@@ -86,26 +101,30 @@
 			$("#user").on('click',function() {
 
 				formula.display("Formula_container");
-				debugger;
 				formula.calculate();
-			 
 			});
 
-			$("#cancel").on('click',function() {
-				 $("#Formula_container form").remove();
+			$("#clear").on('click',function() {
+
+			 	$("#Formula_container form").remove();
 			});
 
 			$("#admin").on('click',function(){
-				formula.ParamVar("Formula_container");
-			 	
-			 
+				var log = prompt("password :");
+				//if(log === this.login_JSON.variables.admin)
+				var login = login_JSON.some(function(user){
+					return user.name === "admin" && user.password === log;
+							
+				});
+
+				if(!login) return;
+				formula.editVar("Formula_container");
+				//formula.parse(input_JSON);
+				
+				
+				//formula.calculate();
+			
 			});
-			//formula.parse(input_JSON);
-			
-			 
-			formula.calculate();
-			
-			
 
 		</script>
 		
