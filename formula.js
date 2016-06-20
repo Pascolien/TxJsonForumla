@@ -103,10 +103,17 @@ var TxFormula = (function () {
 
 
             form.append("<br/><br/>")
+<<<<<<< HEAD
             form.append("<input type='submit' class='btn btn-default id='add' value='Add' />");
             form.append("\t \t");
 
             form.append("<input type='button' class='btn btn-default' id='delete' value='delete' />");
+=======
+            form.append("<input type='submit'class='btn btn-primary-outline' id='add' value='Add' />");
+            form.append("\t \t");
+
+            form.append("<input type='button' class='btn btn-primary-outline'id='delete' value='delete' />");
+>>>>>>> origin/master
             form.append("<br/><br/>");
 
             //add var 

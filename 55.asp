@@ -3,6 +3,7 @@
 	<head>      
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />  
 		<title>Default portal</title>
+<<<<<<< HEAD
 		 <script type="text/javaScript" src="/code/js/lib/jquery.js"></script>
 		<script type="text/javascript" src="/code/js/lib/Math.js"></script>
 		<script type = "text/javascript" src="/temp_resources/portals/formula.js"> </script>
@@ -10,6 +11,13 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/code/css/style.css">
+=======
+		 <script type="text/javaScript" src="./js/lib/jquery.js"></script>
+		<script type="text/javascript" src="./js/lib/Math.js"></script>
+		<script type = "text/javascript" src="formula.js"> </script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+>>>>>>> origin/master
 	</head>
 	<body style="color: rgb(102, 102, 204); background-color: rgb(255, 255, 255);  background-repeat: no-repeat;" alink="#336666" link="#9999ff" vlink="#000099">
 	 <div class="" style="text-align:center; "> <h1>TxJsonFormula</h1>

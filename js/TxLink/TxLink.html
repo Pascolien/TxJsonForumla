@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" type="text/css" href="/resources/theme/css/common.css"/>
+	
+	<script type="text/javascript" src="/code/js/lib/jquery.js"></script>
+	<script type="text/javascript" src="/code/js/framework_bassetti.js"></script>
+	<script src="/code/js/dhtmlx/dhtmlxcommon.js"></script>
+	<script src="/code/js/dhtmlx/dhtmlxcontainer.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="/resources/theme/css/dhtmlx/combo/dhtmlxcombo.css" />
+	<script src="/code/js/dhtmlx/combo/dhtmlxcombo.js"></script>
+	<script src="/code/js/dhtmlx/combo/dhtmlxcombo_extra.js"></script>
+	<script src="/code/js/dhtmlx/combo/dhtmlxcombo_whp.js"></script>
+	
+    <script src="/code/TxWebComponents/WebCombo/WebCombo_Manager.js"></script>
+    <script src="/code/TxWebComponents/WebCombo/WebCombo_Object.js"></script>
+
+    <script src="/code/TxWebComponents/WebTree/WebTree_Manager.js"></script>
+    <script src="/code/TxWebComponents/WebTree/WebTree_Object.js"></script>
+		
+	<link rel="stylesheet" type="text/css" href="/resources/theme/css/dhtmlx/tree/dhtmlxtree.css" />
+	<script src="/code/js/dhtmlx/tree/dhtmlxtree.js"></script>
+	<script src="/code/js/dhtmlx/tree/dhtmlxtree_json.js"></script>
+	<script src="/code/js/dhtmlx/tree/dhtmlxtree_srnd.js"></script>
+	<script src="/code/js/dhtmlx/tree/dhtmlxtree_ed.js"></script>
+	<script src="/code/js/dhtmlx/tree/dhtmlxtree_kn.js"></script>
+	<script src="/code/js/dhtmlx/tree/dhtmlxtree_xw.js"></script>
+	<script src="/code/js/dhtmlx/tree/dhtmlxtree_sb.js"></script>
+    <script src="/code/js/dhtmlx/tree/dhtmlxtree_attrs.js"></script>
+
+	
+	<script src="/code/js/dhtmlx/toolbar/dhtmlxtoolbar.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/theme/css/dhtmlx/toolbar/dhtmlxtoolbar_dhx_skyblue.css" />
+	
+
+	<link rel="stylesheet" type="text/css" href="/resources/theme/css/dhtmlx/tabbar/dhtmlxtabbar.css"/>
+	<script type="text/javascript" src="langs/translate.js"></script> 
+	<script type="text/javascript" src="js/TxLink.js"></script>
+
+	<script type="text/javascript" src="/code/js/framework_bassetti.js"></script>
+	<script type="text/javascript" src="/code/js/tree.js"></script>
+	<script type="text/javascript" src="/code/js/form.js"></script>
+	<script type="text/javascript" src="/code/js/toolbar.js"></script>
+	<script type="text/javascript" src="/code/js/combo.js"></script>
+	<script type="text/javascript" src="/code/js/dhtmlx/tabbar/dhtmlxtabbar.js"></script>
+	<script type="text/javascript">
+	var J = jQuery.noConflict();
+	</script>
+	
+	
+</head>
+
+<body OnLoad="Translate();  Int_Tabs(); init(); Get_Text_Selected(); TreeInit();">
+
+<div id="a_tabbar" style=" margin-left: 15px;">
+<div id="a1" name="Liens internes" style="width:600px; height: 294px "> 
+<form onsubmit="insertInternalLink(); return false;" action="#" height="50" style="margin-left: 37px;"> 		
+</br>
+				
+				<table border="0" cellpadding="4" cellspacing="0" role="presentation">
+					<tr>
+						<td align="right" class="nowrap"><label id="titlelabel" for="entityText">{#TxLink_js.title}</label></td>
+						<td>
+							<input id="entityText" name="entityText" style="width:275px;" type="text" value="" />
+							<img title="" src="/resources/theme/img/btn_form/16x16_false.png" onclick="J('#entityText').val('')" style="cursor:pointer;"/>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="nowrap"><label id="hreflabel" for="filterObject">{#TxLink_js.filterObject}</label></td>
+						<td><table border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td><div id="id_div_combo" style="width:250px;"></div></td>
+										<td id="hrefbrowsercontainer">&nbsp;</td>
+									</tr>
+								</table>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="nowrap"><label id="aze" for="selectObject">{#TxLink_js.selectObject}</label></td>
+						<td>
+							<div id="id_div_treebox">
+								<div id="id_div_tree" style=""></div>
+								<div id="id_div_toolbar" style=""></div>
+							</div>
+						</td>
+					</tr>
+				</table>
+		
+</form>
+
+</div>
+
+<div id="a2" name="Liens externes" style=" width: 580px">
+<form onsubmit="insertExternalLink(); return false;" action="#" height="50" style="margin-left: 123px;"> 	
+</br>
+	
+	
+				<table   border="0" cellpadding="4" cellspacing="0">
+					<tr>
+						<td align="right" class="nowrap"><label id="titlelabel" for="entityText">{#TxLink_js.title}</label></td>
+						<td>
+							<input id="entityText2" name="entityText2" style="width:275px;" type="text" value="" />
+							<img title="" src="/resources/theme/img/btn_form/16x16_false.png" onclick="J('#entityText2').val('')" style="cursor:pointer;"/>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" class="nowrap"><label id="titlelabel" for="entityText">{#TxLink_js.URL}</label></td>
+						<td>
+							<input id="URL" name="URL" style="width:275px;" type="text" value="http://" />
+							<img title="" src="/resources/theme/img/btn_form/16x16_false.png" onclick="J('#URL').val('')" style="cursor:pointer;"/>
+						</td>
+					</tr>
+				</table>
+
+
+	
+</form>
+</br>
+ </div>
+ 
+ </div>
+ 
+ 
+ 
+	 	<div class="mceActionPanel" id="formdhx" style="float:right">
+					<table id="table" style = "margin-right: 12px;">
+						<tr>
+							<td>
+								<input  class="cl_btn_action" type="button" id="insert" name="insert" value="{#TxLink_js.insert}" style="display:block;" onclick="insertLink();return false;"/>
+							</td>
+							
+							
+							<td>
+							<input class="cl_btn_action" type="button" id="cancel" name="cancel" value="{#TxLink_js.cancel}" style="display:block;" onclick="CloseTinyPop();return false;"/>
+							</td>
+							
+
+							
+						</tr>
+				</table>
+				
+		</div>  
+
+
+	
+</body>
+
+</html>
